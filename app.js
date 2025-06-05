@@ -66,7 +66,7 @@ app.post('/products', async (req, res) => {
     if (error) {
         res.send(error);
     }
-    res.send("created!!");
+    res.json({ message: "created!!" });
     console.log("retorno "+ req.body.name);
     console.log("retorno "+ req.body.description);
     console.log("retorno "+ req.body.price);
@@ -85,7 +85,7 @@ app.put('/products/:id', async (req, res) => {
     if (error) {
         res.send(error);
     }
-    res.send("updated!!");
+    res.json({ message: "updated!!" });
 });
 
 app.delete('/products/:id', async (req, res) => {
@@ -97,7 +97,7 @@ app.delete('/products/:id', async (req, res) => {
     if (error) {
         res.send(error);
     }
-    res.send("deleted!!")
+    res.json({ message: "deleted!!" })
     console.log("delete: " + req.params.id);
 
 });
