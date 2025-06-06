@@ -95,11 +95,12 @@ app.delete('/products/:id', async (req, res) => {
         .delete()
         .eq('id', req.params.id)
     if (error) {
-        res.send(error);
+        // Em caso de erro, também é melhor enviar JSON
+        return res.status(500).json({ error: error.message });
     }
-    res.json({ message: "deleted!!" })
+    // A linha mais importante é esta:
+    res.json({ message: "deleted!!" }) // Tem que ser res.json()
     console.log("delete: " + req.params.id);
-
 });
 
 app.get('/', (req, res) => {
